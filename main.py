@@ -17,7 +17,7 @@ offset = randint(0, 49)
 
 # Set Arguments
 arguments = {"keywords":"pigs", "limit":"50", "size":">2MP", "aspect_ratio":"wide", 
-            "type":"photo", "format":"jpg", "no_directory":True, "no_download":True}
+            "type":"photo", "format":"jpg", "image_directory":"pigs", "no_download":True}
 
 # Pass in arguments
 paths = response.download(arguments)
@@ -26,13 +26,13 @@ paths = response.download(arguments)
 url = list(paths.values())[0][offset]
 
 # Download image from url
-urlretrieve(url, "pig.jpg")
+urlretrieve(url, "downloads/pigs/pig.jpg")
 
 # Set Desktop Background
 def _set_Background():
     SPI_SETDESKWALLPAPER = 20 
     dir = os.path.dirname(os.path.realpath(__file__))
-    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, dir + "/pig.jpg" , 0)
+    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, dir + "/downloads/pigs/pig.jpg" , 0)
     #os.remove("pig.jpg")
 
 # Set background
